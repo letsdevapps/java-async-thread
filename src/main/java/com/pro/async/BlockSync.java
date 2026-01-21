@@ -2,11 +2,11 @@ package com.pro.async;
 
 import com.pro.util.BlockSharedCounter;
 
-public class BlockSyncThread implements Runnable {
+public class BlockSync implements Runnable {
 
 	private BlockSharedCounter counter;
 
-	public BlockSyncThread(BlockSharedCounter counter) {
+	public BlockSync(BlockSharedCounter counter) {
 		this.counter = counter;
 	}
 

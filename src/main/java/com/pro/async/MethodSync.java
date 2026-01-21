@@ -2,11 +2,11 @@ package com.pro.async;
 
 import com.pro.util.MethodSharedCounter;
 
-public class MethodSyncThread implements Runnable {
+public class MethodSync implements Runnable {
 
 	private MethodSharedCounter counter;
 
-	public MethodSyncThread(MethodSharedCounter counter) {
+	public MethodSync(MethodSharedCounter counter) {
 		this.counter = counter;
 	}
 

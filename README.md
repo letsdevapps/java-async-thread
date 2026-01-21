@@ -3,8 +3,8 @@
 Demonstração do uso de Threads Async em Java, preferi fazer chamadas separadas sequenciais, atuando em diferentes assuntos
 
 * SimpleThread
-* MethodSyncThread e BlockSyncThread
-* 
+* MethodSync e BlockSync
+* RaceConditionProblem e 
 
 
 # Docs
