@@ -4,8 +4,8 @@ Demonstração do uso de Threads Async em Java, preferi fazer chamadas separadas
 
 * SimpleThread
 * MethodSync e BlockSync
-* RaceConditionProblem e 
-
+* RaceConditionProblem e AtomicInteger
+* ReentrantLock, TryLock e TimeoutLock
 
 # Docs
 

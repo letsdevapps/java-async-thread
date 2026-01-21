@@ -3,18 +3,12 @@ package com.pro;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.pro.async.BlockSync;
-import com.pro.async.MethodSync;
-import com.pro.async.RaceConditionProblem;
-import com.pro.async.SimpleThread;
-import com.pro.util.BlockSharedCounter;
-import com.pro.util.MethodSharedCounter;
-import com.pro.util.RCPSharedCounter;
+import com.pro.util.LockSharedCounter;
 
 public class App {
 	public static void main(String[] args) {
 		System.out.println("----- Java Async Thread | Main -----");
-
+/*
 		System.out.println("----- Java Async Thread | Simple Thread -----");
 		// Cria um pool de 3 threads
 		ExecutorService executorSimple = Executors.newFixedThreadPool(3);
@@ -78,5 +72,30 @@ public class App {
 
         // Fecha o ExecutorService após todas as tarefas serem executadas
         executorRCP.shutdown();
+
+        System.out.println("----- Java Async Thread | Race Condition Atomic Integer -----");
+        ExecutorService executorAtomInt = Executors.newFixedThreadPool(3);
+        
+        AtomicIntegerSharedCounter counterAtomInt = new AtomicIntegerSharedCounter();
+        
+        for (int i = 1; i <= 5; i++) {
+        	executorAtomInt.submit(new AtomicIntegerSync(counterAtomInt));
+        }
+        
+        executorAtomInt.shutdown();
+        */
+		System.out.println("----- Java Async Thread | Reentrant Lock -----");
+		ExecutorService executorReentLock = Executors.newFixedThreadPool(3);
+
+		LockSharedCounter counter = new LockSharedCounter();
+
+		for (int i = 1; i <= 5; i++) {
+			//executorReentLock.submit(() -> counter.increment());
+			//executorReentLock.submit(() -> counter.incrementTryLock());
+			executorReentLock.submit(() -> counter.incrementTryLockTimeoutWait());
+		}
+
+		executorReentLock.shutdown();
+
 	}
 }
