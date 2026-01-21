@@ -1,10 +1,10 @@
 package com.pro.async;
 
-public class SimpleAsyncThread implements Runnable {
+public class SimpleThread implements Runnable {
 
 	private int taskId;
 
-	public SimpleAsyncThread(int taskId) {
+	public SimpleThread(int taskId) {
 		this.taskId = taskId;
 	}
 
